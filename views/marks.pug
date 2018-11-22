@@ -1,0 +1,113 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='http://code.jquery.com/ui/1.10.2/jquery-ui.js')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+        script(src="//cdn.rawgit.com/swisnl/jQuery-contextMenu/master/dist/jquery.contextMenu.js")
+        link(rel="stylesheet" href="//cdn.rawgit.com/swisnl/jQuery-contextMenu/master/dist/jquery.contextMenu.css")
+
+
+        script.
+            $(document).ready(function () {
+                let counter = 0;
+                let n_column = 1;
+                let content = '';
+                $.ajax({
+                    type: "POST",
+                    url: "select_marks",
+                    dataType: 'json',
+                    success: function (data) {
+                        $.each(data, function (i, row) {
+                            if (counter % 5 == 1) {
+                                content = '.column' + n_column;
+                                n_column += 1;
+                            }
+                            $(content).append(
+                                "<div class = 'mark' style='" + 'margin-top: 30px' + "'><img src=" + row.image + ">" + row.name + "</div>"
+                            );
+                            counter += 1;
+                        });
+                    }
+                });
+
+
+                $('#delete_task').click(function () {
+                    var checkbox = $('.row_chbx:checked');
+                    if (checkbox.length > 0) {
+                        var del_checkbox = [];
+                        $(checkbox).each(function () {
+                            del_checkbox.push($(this).attr('id'));
+                        });
+
+                        $.ajax({
+                            type: "POST",
+                            url: "delete_task",
+                            data: del_checkbox,
+                            success: function (data) {
+                                $('.form-control').css('display','none');
+
+                            }
+                        });
+
+                    }
+                    else {
+                        alert('Вы не выбрали ни одного задания:))');
+                    }
+                });
+
+                $(document).on('click', '.add_subtask', function () {
+                    $('<tr>' +
+                        "<td><input type= 'checkbox' id='"+ "1" + "'class='" + "row_chbx" + "'>" + "</td>" +
+                        '<td>Подазадача</td>' +
+                        '<td>Дата окончания</td>' +
+                        "<td><input type = 'button' id='" + "1" + "'class='" + "task_options" + "'></td>" +
+                        '<td>Автор</td>' +
+                        "<td><input type = 'button' id='" + "1" + "'class='" + "btn btn-info btn-xs edit_data" + "'value='" + "Редактировать" + "'/>" + "</td>" +
+                        "<td><input type = 'button' id='" + "1" + "'class='" + "btn btn-info btn-xs view_data" + "'value='" + "Просмотр" + "'/>" + "</td>" +
+                        '</tr>').insertAfter($(this).closest('tr'));
+
+                });
+
+
+
+                $(document).on('click', '.row_chbx', function () {
+                    var html = '';
+                    if ($(this).is(':checked')) {
+
+                    }
+                    else {
+
+                    }
+                });
+
+
+                $(document).on('mouseenter', '.mark', function () {
+                    $(this).css('background-color','yellow');
+                });
+
+
+            });
+
+    body
+        block content
+
+            h3(align='center')
+
+            //div(class='search')
+            input(type='text' placeholder='Введите марку автомобиля')
+
+            div(class='row')
+                div(class="column1" style="background-color:#fff")
+                div(class="column2" style="background-color:#fff")
+                div(class="column3" style="background-color:#fff")
+                div(class="column4" style="background-color:#fff")
+                div(class="column5" style="background-color:#fff")
+
+
+

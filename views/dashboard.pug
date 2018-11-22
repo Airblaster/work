@@ -1,0 +1,458 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        link(rel='icon', type='image/png', sizes='16x16', href='/plugins/images/favicon.png')
+        title
+        // Bootstrap Core CSS
+        link(href='/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+        // Menu CSS
+        link(href='/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css', rel='stylesheet')
+        // toast CSS
+        link(href='/plugins/bower_components/toast-master/css/jquery.toast.css', rel='stylesheet')
+        // morris CSS
+        link(href='/plugins/bower_components/morrisjs/morris.css', rel='stylesheet')
+        // chartist CSS
+        link(href='/plugins/bower_components/chartist-js/dist/chartist.min.css', rel='stylesheet')
+        link(href='/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css', rel='stylesheet')
+        // animation CSS
+        link(href='/css/animate.css', rel='stylesheet')
+        // Custom CSS
+        link(href='/css/style.css', rel='stylesheet')
+        // color CSS
+        link#theme(href='/css/colors/default.css', rel='stylesheet')
+        // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+        // WARNING: Respond.js doesn't work if you view the page via file://
+        //if lt IE 9
+         script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+         script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    body.fix-header
+        // ==============================================================
+        // Preloader
+        // ==============================================================
+        .preloader
+            svg.circular(viewBox='25 25 50 50')
+                circle.path(cx='50', cy='50', r='20', fill='none', stroke-width='2', stroke-miterlimit='10')
+        // ==============================================================
+        // Wrapper
+        // ==============================================================
+        #wrapper
+            // ==============================================================
+            // Topbar header - style you can find in pages.scss
+            // ==============================================================
+            nav.navbar.navbar-default.navbar-static-top.m-b-0
+                .navbar-header
+                    .top-left-part
+                        // Logo
+                        a.logo(href='index.html')
+                            // Logo icon image, you can use font-icon also
+                            b
+                                // This is dark logo icon
+                                img.dark-logo(src='/plugins/images/admin-logo.png', alt='home')
+                                // This is light logo icon
+                                img.light-logo(src='/plugins/images/admin-logo-dark.png', alt='home')
+                            // Logo text image you can use text also
+                            span.hidden-xs
+                                // This is dark logo text
+                                img.dark-logo(src='/plugins/images/admin-text.png', alt='home')
+                                // This is light logo text
+                                // BORISOV BEGIN <img src="../plugins/images/admin-text-dark.png" alt="home" class="light-logo" /> BORISOV END
+                                // /Logo
+                    ul.nav.navbar-top-links.navbar-right.pull-right
+                        li
+                            form.app-search.hidden-sm.hidden-xs.m-r-10(role='search')
+                                input.form-control(type='text', placeholder='Search...')
+                                a(href='')
+                                    i.fa.fa-search
+                        li
+                            a.profile-pic(href='#')
+                                img.img-circle(src='/plugins/images/users/varun.jpg', alt='user-img', width='36')
+                                b.hidden-xs Steave
+                // /.navbar-header
+                // /.navbar-top-links
+                // /.navbar-static-side
+                // End Top Navigation
+                // ==============================================================
+                // Left Sidebar - style you can find in sidebar.scss
+                // ==============================================================
+            .navbar-default.sidebar(role='navigation')
+                .sidebar-nav.slimscrollsidebar
+                    .sidebar-head
+                        h3
+                            span.fa-fw.open-close
+                                i.ti-close.ti-menu
+                            span.hide-menu Navigation
+                    ul#side-menu.nav
+                        li(style='padding: 70px 0 0;')
+                            a.waves-effect(href='http://127.0.0.1:3000')
+                                i.fa.fa-clock-o.fa-fw(aria-hidden='true')
+                                | Dashboard
+                        li(class='task')
+                            a.waves-effect(href='')
+                                i.fa.fa-user.fa-fw(aria-hidden='true')
+                                | Профиль
+                        li
+                            a.waves-effect(href='/tasks')
+                                i.fa.fa-edit.fa-fw(aria-hidden='true')
+                                | Задания
+                        li
+                            a.waves-effect(href='/documents')
+                                i.fa.fa-folder.fa-fw(aria-hidden='true')
+                                | Документы
+                        li
+                            a.waves-effect(href='/chat')
+                                i.fa.fa-comments.fa-fw(aria-hidden='true')
+                                | Чат
+                        li
+                            a.waves-effect(href='404.html')
+                                i.fa.fa-calendar.fa-fw(aria-hidden='true')
+                                | Календарь
+                        li
+                            a.waves-effect(href='chat.html')
+                                i.fa.fa-cogs.fa-fw(aria-hidden='true')
+                                | Настройки
+                    .center.p-20
+                        // <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank" class="btn btn-danger btn-block waves-effect waves-light">Upgrade to Pro</a>  BORISOV
+                        // ==============================================================
+                        // End Left Sidebar
+                        // ==============================================================
+                        // ==============================================================
+                        // Page Content
+                        // ==============================================================
+            #page-wrapper
+                .container-fluid
+                    .row.bg-title
+                        .col-lg-3.col-md-4.col-sm-4.col-xs-12
+                            h4.page-title Dashboard
+                                //
+                                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> BORISOV BEGIN
+                                 <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Upgrade to Pro</a>
+                                 <ol class="breadcrumb">
+                                 <li><a href="#">Dashboard</a></li>
+                                 </ol>
+                                 </div> BORISOV END
+                                // /.col-lg-12
+                                // /.row
+                                // ==============================================================
+                                // Different data widgets
+                                // ==============================================================
+                                // .row
+                    .row
+                        .col-lg-4.col-sm-6.col-xs-12
+                            .white-box.analytics-info
+                                h3.box-title Total Visit
+                                ul.list-inline.two-part
+                                    li
+                                        #sparklinedash
+                                    li.text-right
+                                        i.ti-arrow-up.text-success
+                                        span.counter.text-success 659
+                        .col-lg-4.col-sm-6.col-xs-12
+                            .white-box.analytics-info
+                                h3.box-title Total Page Views
+                                ul.list-inline.two-part
+                                    li
+                                        #sparklinedash2
+                                    li.text-right
+                                        i.ti-arrow-up.text-purple
+                                        span.counter.text-purple 869
+                        .col-lg-4.col-sm-6.col-xs-12
+                            .white-box.analytics-info
+                                h3.box-title Unique Visitor
+                                ul.list-inline.two-part
+                                    li
+                                        #sparklinedash3
+                                    li.text-right
+                                        i.ti-arrow-up.text-info
+                                        span.counter.text-info 911
+                                    // /.row
+                                    // row
+                                    // /.row
+                    .row
+                        .col-md-12.col-lg-12.col-sm-12.col-xs-12
+                            .white-box
+                                h3.box-title Products Yearly Sales
+                                ul.list-inline.text-right
+                                    li
+                                        h5
+                                            i.fa.fa-circle.m-r-5.text-info
+                                            | Mac
+                                    li
+                                        h5
+                                            i.fa.fa-circle.m-r-5.text-inverse
+                                            | Windows
+                                #ct-visits(style='height: 405px;')
+                                    // ==============================================================
+                                    // table
+                    .row
+                        .col-md-12.col-lg-12.col-sm-12
+                            .white-box
+                                .col-md-3.col-sm-4.col-xs-6.pull-right
+                                    select.form-control.pull-right.row.b-none
+                                        option March 2017
+                                        option April 2017
+                                        option May 2017
+                                        option June 2017
+                                        option July 2017
+                                h3.box-title Recent sales
+                                .table-responsive
+                                    table.table
+                                        thead
+                                            tr
+                                                th #
+                                                th NAME
+                                                th STATUS
+                                                th DATE
+                                                th PRICE
+                                        tbody
+                                            tr
+                                                td 1
+                                                td.txt-oflo Elite admin
+                                                td SALE
+                                                td.txt-oflo April 18, 2017
+                                                td
+                                                    span.text-success $24
+
+                                            tr
+                                                td 2
+                                                td.txt-oflo Real Homes WP Theme
+                                                td EXTENDED
+                                                td.txt-oflo April 19, 2017
+                                                td
+                                                    span.text-info $1250
+                                            tr
+                                                td 3
+                                                td.txt-oflo Ample Admin
+                                                td EXTENDED
+                                                td.txt-oflo April 19, 2017
+                                                td
+                                                    span.text-info $1250
+                                            tr
+                                                td 4
+                                                td.txt-oflo Medical Pro WP Theme
+                                                td TAX
+                                                td.txt-oflo April 20, 2017
+                                                td
+                                                    span.text-danger -$24
+                                            tr
+                                                td 5
+                                                td.txt-oflo Hosting press html
+                                                td SALE
+                                                td.txt-oflo April 21, 2017
+                                                td
+                                                    span.text-success $24
+                                            tr
+                                                td 6
+                                                td.txt-oflo Digital Agency PSD
+                                                td SALE
+                                                td.txt-oflo April 23, 2017
+                                                td
+                                                    span.text-danger -$14
+                                            tr
+                                                td 7
+                                                td.txt-oflo Helping Hands WP Theme
+                                                td MEMBER
+                                                td.txt-oflo April 22, 2017
+                                                td
+                                                    span.text-success $64
+                                    // ==============================================================
+
+                                    // ==============================================================
+                                    // chat-listing & recent comments
+                                    // ==============================================================
+                    .row
+                        // .col
+                        .col-md-12.col-lg-8.col-sm-12
+                            .white-box
+                                h3.box-title Recent Comments
+                                .comment-center.p-t-10
+                                    .comment-body
+                                        .user-img
+                                            img.img-circle(src='/plugins/images/users/pawandeep.jpg', alt='user')
+                                        .mail-contnet
+                                            h5 Pavan kumar
+                                            span.time 10:20 AM   20  may 2016
+                                            br
+                                            span.mail-desc
+                                                | Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat
+                                            a.btn.btn.btn-rounded.btn-default.btn-outline.m-r-5(href='javacript:void(0)')
+                                                i.ti-check.text-success.m-r-5
+                                                | Approve
+                                            a.btn-rounded.btn.btn-default.btn-outline(href='javacript:void(0)')
+                                                i.ti-close.text-danger.m-r-5
+                                                |  Reject
+                                    .comment-body
+                                        .user-img
+                                            img.img-circle(src='/plugins/images/users/sonu.jpg', alt='user')
+                                        .mail-contnet
+                                            h5 Sonu Nigam
+                                            span.time 10:20 AM   20  may 2016
+                                            br
+                                            span.mail-desc
+                                                | Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat
+                                    .comment-body.b-none
+                                        .user-img
+                                            img.img-circle(src='/plugins/images/users/arijit.jpg', alt='user')
+                                        .mail-contnet
+                                            h5 Arijit singh
+                                            span.time 10:20 AM   20  may 2016
+                                            br
+                                            span.mail-desc
+                                                | Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat
+                        .col-lg-4.col-md-6.col-sm-12
+                            .panel
+                                .sk-chat-widgets
+                                    .panel.panel-default
+                                        .panel-heading
+                                            | CHAT LISTING
+                                        .panel-body
+                                            ul.chatonline
+                                                li
+                                                    .call-chat
+                                                        button.btn.btn-success.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-phone
+                                                        button.btn.btn-info.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-comments-o
+                                                    a(href='javascript:void(0)')
+                                                        img.img-circle(src='/plugins/images/users/varun.jpg', alt='user-img')
+                                                        span
+                                                            | Varun Dhavan
+                                                            small.text-success online
+                                                li
+                                                    .call-chat
+                                                        button.btn.btn-success.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-phone
+                                                        button.btn.btn-info.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-comments-o
+                                                    a(href='javascript:void(0)')
+                                                        img.img-circle(src='/plugins/images/users/genu.jpg', alt='user-img')
+                                                        span
+                                                            | Genelia Deshmukh
+                                                            small.text-warning Away
+                                                li
+                                                    .call-chat
+                                                        button.btn.btn-success.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-phone
+                                                        button.btn.btn-info.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-comments-o
+                                                    a(href='javascript:void(0)')
+                                                        img.img-circle(src='/plugins/images/users/ritesh.jpg', alt='user-img')
+                                                        span
+                                                            | Ritesh Deshmukh
+                                                            small.text-danger Busy
+                                                li
+                                                    .call-chat
+                                                        button.btn.btn-success.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-phone
+                                                        button.btn.btn-info.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-comments-o
+                                                    a(href='javascript:void(0)')
+                                                        img.img-circle(src='/plugins/images/users/arijit.jpg', alt='user-img')
+                                                        span
+                                                            | Arijit Sinh
+                                                            small.text-muted Offline
+                                                li
+                                                    .call-chat
+                                                        button.btn.btn-success.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-phone
+                                                        button.btn.btn-info.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-comments-o
+                                                    a(href='javascript:void(0)')
+                                                        img.img-circle(src='/plugins/images/users/govinda.jpg', alt='user-img')
+                                                        span
+                                                            | Govinda Star
+                                                            small.text-success online
+                                                li
+                                                    .call-chat
+                                                        button.btn.btn-success.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-phone
+                                                        button.btn.btn-info.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-comments-o
+                                                    a(href='javascript:void(0)')
+                                                        img.img-circle(src='/plugins/images/users/hritik.jpg', alt='user-img')
+                                                        span
+                                                            | John Abraham
+                                                            small.text-success online
+                                                li
+                                                    .call-chat
+                                                        button.btn.btn-success.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-phone
+                                                        button.btn.btn-info.btn-circle.btn-lg(type='button')
+                                                            i.fa.fa-comments-o
+                                                    a(href='javascript:void(0)')
+                                                        img.img-circle(src='/plugins/images/users/varun.jpg', alt='user-img')
+                                                        span
+                                                            | Varun Dhavan
+                                                            small.text-success online
+                        // /.col
+                        // /.container-fluid
+                    footer.footer.text-center  2017 © КХТИ
+                            // ==============================================================
+                            // End Page Content
+                            // ==============================================================
+                            // ==============================================================
+                            // End Wrapper
+                            // ==============================================================
+                            // ==============================================================
+                            // All Jquery
+                            // ==============================================================
+        script(src='/plugins/bower_components/jquery/dist/jquery.min.js')
+            // Bootstrap Core JavaScript
+        script(src='/bootstrap/dist/js/bootstrap.min.js')
+            // Menu Plugin JavaScript
+        script(src='/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js')
+            // slimscroll JavaScript
+        script(src='/js/jquery.slimscroll.js')
+            // Wave Effects
+        script(src='/js/waves.js')
+            // Counter js
+        script(src='/plugins/bower_components/waypoints/lib/jquery.waypoints.js')
+        script(src='/plugins/bower_components/counterup/jquery.counterup.min.js')
+            // chartist chart
+        script(src='/plugins/bower_components/chartist-js/dist/chartist.min.js')
+        script(src='/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js')
+            // Sparkline chart JavaScript
+        script(src='/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js')
+            // Custom Theme JavaScript
+        script(src='/js/custom.min.js')
+        script(src='/js/dashboard1.js')
+        script(src='/plugins/bower_components/toast-master/js/jquery.toast.js')
+        script.
+            $(document).ready(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "select_tasks",
+                    dataType: 'json',
+                    success: function (data) {
+                        let html = '';
+                        $.each(data, function (i, row) {
+                            if (i > 2) return;
+                            else {
+                                html += "<tr>";
+                                html += "<td><input type= 'checkbox' id='" + row.id + "'data-name='" + row.name + "'data-begda='" +
+                                    row.begda + "'data-endda='" + row.endda + "'data-author='" + row.author +
+                                    "'class='" + "row_chbx" + "'>" + "</td>";
+                                html += "<td>" + row.name + "</td>";
+                                html += "<td>" + row.begda + "</td>";
+                                html += "<td>" + row.endda + "</td>";
+                                html += "<td>" + row.author + "</td>";
+                                html += "</tr>";
+                            }
+                        });
+                        $('table tbody').append(html);
+                    }
+                });
+
+                $(document).on('click', '.task', function (e) {
+                    e.preventDefault();
+                    $('#page-wrapper').empty();
+                });
+
+
+
+
+            });
