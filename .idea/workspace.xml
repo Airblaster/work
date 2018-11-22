@@ -93,6 +93,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/../project1/node_modules" />
     <handled-path value="$PROJECT_DIR$/../project1/public/bootstrap/node_modules" />
     <handled-path value="$PROJECT_DIR$/../project1/public/plugins/bower_components/chartist-plugin-tooltip-master/node_modules" />
     <handled-path value="$PROJECT_DIR$/../project1/public/plugins/bower_components/morrisjs/node_modules" />
@@ -272,12 +273,12 @@
       <workItem from="1542651051824" duration="744000" />
       <workItem from="1542731983978" duration="3326000" />
       <workItem from="1542819392242" duration="7510000" />
-      <workItem from="1542899213714" duration="8191000" />
+      <workItem from="1542899213714" duration="8788000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198624000" />
+    <option name="totallyTimeSpent" value="199221000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
