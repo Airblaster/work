@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
-
-var http = require('http');
-var io = new require('socket.io')(http);
-
-
+var http = require('http').Server(express);
+var io = require('socket.io')(http);
 
 var connection = function () {
     let mysql = require('mysql');
@@ -32,15 +28,19 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.get('/tasks', function(req, res, next) {
+router.get('/tasks', function(req, res) {
     res.render('tasks');
 });
 
-router.get('/chat', function(req, res, next) {
-    res.render('chat');
+router.get('/chat', function(req, res) {
+    res.sendFile(__dirname + '/chat.html');
 });
 
-
+io.on('connection', function(socket){
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+    });
+});
 
 
 router.post("/select_marks", function(req,res){
@@ -125,10 +125,6 @@ router.post('/insert_mark', function (req, res) {
 
     });
 });
-
-
-
-
 
 
 module.exports = router;
